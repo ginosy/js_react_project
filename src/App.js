@@ -11,7 +11,7 @@ const App = () => {
   return (
     <div className="container p-4 mt-2">
       <h2>Todo Application</h2>
-      <Router basename={"/Todolist_React_Redux"}>
+      <Router basename={"/js_react_project"}>
         <Navbar />
         <Routes>
           <Route exact path="/" element={<About />} />
