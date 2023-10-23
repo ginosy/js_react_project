@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-
-
 export const Contact = () => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -11,13 +9,14 @@ export const Contact = () => {
   const onSubmit = () => {
     console.log(firstname, lastname, email, comment);
   };
-  
+
   return (
     <div className="container my-4 py-1 border">
       <form className="mt-3 mb-2" id="contactForm" onSubmit={onSubmit}>
         <div>
-          <label className="sr-only">First Name</label>
+          <label for="FirstName" className="sr-only mb-2 mr-sm-3">First Name</label>
           <input
+            id="FirstName"
             type="text"
             name="firstname"
             className="form-control mb-2 mr-sm-3"
@@ -25,12 +24,12 @@ export const Contact = () => {
             required
             onChange={(e) => setLastname(e.target.value)}
           />
-          {}
         </div>
 
         <div>
-          <label className="sr-only">Last Name</label>
+          <label for="LastName" className="sr-only mb-2 mr-sm-3">Last Name</label>
           <input
+            id="LastName"
             type="text"
             name="lastname"
             className="form-control mb-2 mr-sm-3"
@@ -41,8 +40,9 @@ export const Contact = () => {
         </div>
 
         <div>
-          <label className="sr-only">Email</label>
+          <label for="Email" className="sr-only mb-2 mr-sm-3">Email</label>
           <input
+            id="Email"
             type="text"
             name="email"
             className="form-control mb-2 mr-sm-3"
@@ -55,6 +55,7 @@ export const Contact = () => {
         <div>
           <label className="sr-only">Comments</label>
           <textarea
+            id="Comments"
             type="text"
             name="Description"
             className="form-control mb-2 mr-sm-3"
