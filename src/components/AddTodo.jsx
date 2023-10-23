@@ -69,6 +69,7 @@ export const AddTodo = () => {
             <input
               type="text"
               name="title"
+              maxLength={25}
               className="form-control mb-2 mr-sm-3"
               placeholder="Todo Title"
               defaultValue={value?.title}
@@ -82,6 +83,7 @@ export const AddTodo = () => {
             <input
               type="text"
               name="description"
+              maxLength={40}
               className="form-control mb-2 mr-sm-3"
               placeholder="Description"
               defaultValue={value?.description}
