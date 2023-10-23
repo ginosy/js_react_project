@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { About } from "./components/About";
 import { Contact } from "./components/Contact";
@@ -11,7 +11,7 @@ const App = () => {
   return (
     <div className="container p-4 mt-2">
       <h2>Todo Application</h2>
-      <Router basename={"/js_react_project"}>
+      <Router>
         <Navbar />
         <Routes>
           <Route exact path="/" element={<About />} />

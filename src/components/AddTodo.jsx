@@ -10,7 +10,6 @@ export const AddTodo = () => {
   const editTodo = useSelector((state) => state.todoReducer.editTodo);
 
   useEffect(() => {
-    console.log(editTodo, "(")
     editTodo && setValue(() => editTodo);
   }, [editTodo]);
 
