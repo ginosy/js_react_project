@@ -5,6 +5,7 @@ import {
   EDIT_TODO,
   UPDATE_TODO,
   MARK_COMPLETED,
+  RESET_EDIT,
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -71,16 +72,24 @@ const todoReducer = (state = initialState, action) => {
 
     case UPDATE_TODO:
       const { todoId, todoTitle, todoDescription } = action.payload;
-      const todos = state.todos.filter((todo) => {
-        return todo.id !== todoId;
-      });
+      // const todos = state.todos.filter((todo) => {
+      //   return todo.id !== todoId;
+      // });
 
-      const todo = state.todos.find((todo) => todo?.id === todoId);
-      todo.title = todoTitle;
-      todo.description = todoDescription;
-      todo.isCompleted = todo?.isCompleted;
-      todo.isPending = todo?.isPending;
-      todos.push(todo);
+      // const todo = state.todos.find((todo) => todo?.id === todoId);
+      // todo.title = todoTitle;
+      // todo.description = todoDescription;
+      // todo.isCompleted = todo?.isCompleted;
+      // todo.isPending = todo?.isPending;
+      // todos.push(todo);
+
+      let todos = state.todos.map((value) => {
+        if (value.id === todoId) {
+          value.title = todoTitle;
+          value.description = todoDescription;
+        }
+        return value;
+      });
 
       return {
         ...state,
@@ -90,7 +99,6 @@ const todoReducer = (state = initialState, action) => {
 
     case MARK_COMPLETED:
       const { selectedTodoId } = action.payload;
-      console.log(selectedTodoId)
       let allTodos = state.todos.map((value) => {
         if (value.id === selectedTodoId[0]) {
           value.isCompleted = true;
@@ -118,6 +126,11 @@ const todoReducer = (state = initialState, action) => {
         ...state,
         todos: [],
       };
+    case RESET_EDIT:
+      return {
+        ...state,
+        editTodo:-1,
+      }
 
     default:
       return state;

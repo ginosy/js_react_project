@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addNewTodo, updateTodo } from "../redux/actions";
+import { addNewTodo, resetEdit, updateTodo } from "../redux/actions";
 
 export const AddTodo = () => {
   const [value, setValue] = useState({});
@@ -10,6 +10,7 @@ export const AddTodo = () => {
   const editTodo = useSelector((state) => state.todoReducer.editTodo);
 
   useEffect(() => {
+    console.log(editTodo, "(")
     editTodo && setValue(() => editTodo);
   }, [editTodo]);
 
@@ -37,6 +38,7 @@ export const AddTodo = () => {
     else {
       dispatch(addNewTodo(value));
     }
+    dispatch(resetEdit());
     setValue({title: '', description: ''});
     document.getElementById("todoForm").reset();
   };

@@ -40,6 +40,7 @@ export const TodoLists = () => {
   }
 
   const actionClick = (data) => {
+    console.log(data, "***");
     if (data && data?.type === "edit") {
       dispatch(editTodo(data?.todo?.id));
     } else if (data && data?.type === "delete") {

@@ -5,6 +5,7 @@ import {
     EDIT_TODO,
     UPDATE_TODO,
     MARK_COMPLETED,
+    RESET_EDIT,
   } from "./actionTypes";
   
   export const addNewTodo = (todo) => {
@@ -50,6 +51,12 @@ import {
       },
     };
   };
+
+  export const resetEdit =()=>{
+    return {
+      type: RESET_EDIT,
+    }
+  }
   
   export const markTodoCompleted = (id) => {
     return {
