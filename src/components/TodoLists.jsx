@@ -20,24 +20,24 @@ export const TodoLists = () => {
     setTodoLists(todos);
   }, [todos]);
 
-  const handleAllClick = () =>{
+  const handleAllClick = () => {
     setAll(true);
     setCompleted(false);
     setIncompleted(false);
     setTodoLists(todos);
-  }
-  const handleCompletedClick = () =>{
+  };
+  const handleCompletedClick = () => {
     setAll(false);
     setCompleted(true);
     setIncompleted(false);
-    setTodoLists(todos.filter(todo =>todo.isCompleted === true));
-  }
-  const handleIncompletedClick = () =>{
+    setTodoLists(todos.filter((todo) => todo.isCompleted === true));
+  };
+  const handleIncompletedClick = () => {
     setAll(false);
     setCompleted(false);
     setIncompleted(true);
-    setTodoLists(todos.filter(todo =>todo.isCompleted === false));
-  }
+    setTodoLists(todos.filter((todo) => todo.isCompleted === false));
+  };
 
   const actionClick = (data) => {
     if (data && data?.type === "edit") {
@@ -95,15 +95,16 @@ export const TodoLists = () => {
     <div className="container my-2">
       <div className="row pb-4" style={{ height: "60px" }}>
         <div className="col-xl-12 text-right">
-          {selectedTodo.length > 0 && (
-            <>
-              <button
+        <button
                 className="btn btn-danger"
                 onClick={() => dispatch(clearAlltodo())}
               >
                 Clear Todos
               </button>
-              <button className="btn btn-success ml-2" onClick={markCompleted}>
+          {selectedTodo.length > 0 && (
+            <>
+              
+              <button className="btn btn-success ml-2" style={{paddingLeft:"10px"}} onClick={markCompleted}>
                 Mark As Completed/Pending
               </button>
             </>
@@ -150,18 +151,28 @@ export const TodoLists = () => {
                     : ""}
                 </td>
                 <td>
-                  <button
-                    className="btn btn-primary btn-sm"
-                    onClick={() => actionClick({ todo: todo, type: "edit" })}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="btn btn-danger btn-sm ml-1"
-                    onClick={() => actionClick({ todo: todo, type: "delete" })}
-                  >
-                    Delete
-                  </button>
+                  <div className="d-flex">
+                    <div>
+                      <button
+                        className="btn btn-primary btn-sm"
+                        onClick={() =>
+                          actionClick({ todo: todo, type: "edit" })
+                        }
+                      >
+                        Edit
+                      </button>
+                    </div>
+                    <div style={{marginLeft:"10px"}}>
+                      <button
+                        className="btn btn-danger btn-sm"
+                        onClick={() =>
+                          actionClick({ todo: todo, type: "delete" })
+                        }
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
                 </td>
               </tr>
             ))}
@@ -169,13 +180,25 @@ export const TodoLists = () => {
       </table>
       <div>
         <div class="d-flex mt-5 btn-group" role="group">
-          <button type="button" class={`btn ${all ? 'btn-primary' : 'btn-secondary'}`} onClick={handleAllClick}>
+          <button
+            type="button"
+            class={`btn ${all ? "btn-primary" : "btn-secondary"}`}
+            onClick={handleAllClick}
+          >
             All
           </button>
-          <button type="button" class={`btn ${completed ? 'btn-primary' : 'btn-secondary'}`} onClick={handleCompletedClick}>
+          <button
+            type="button"
+            class={`btn ${completed ? "btn-primary" : "btn-secondary"}`}
+            onClick={handleCompletedClick}
+          >
             Completed
           </button>
-          <button type="button" class={`btn ${incompleted ? 'btn-primary' : 'btn-secondary'}`} onClick={handleIncompletedClick}>
+          <button
+            type="button"
+            class={`btn ${incompleted ? "btn-primary" : "btn-secondary"}`}
+            onClick={handleIncompletedClick}
+          >
             Pending
           </button>
         </div>
