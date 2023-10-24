@@ -93,7 +93,7 @@ export const AddTodo = () => {
              <span className="text-danger">{error?.description}</span>
           </div>
 
-          <div className="col-xl-2">
+          <div className="col-xl-2 mt-4">
             <button className="btn btn-primary mb-2" type="submit"> {isEdit ? 'Update Todo' : 'Create Todo'} </button>
           </div>
         </div>
