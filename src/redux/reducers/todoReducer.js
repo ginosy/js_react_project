@@ -103,8 +103,8 @@ const todoReducer = (state = initialState, action) => {
       let allTodos = state.todos.map((value) => {
         selectedTodoId.forEach((id) => {
           if (value.id === id) {
-            value.isCompleted = true;
-            value.isPending = false;
+            value.isCompleted = !value.isCompleted;
+            value.isPending = !value.isPending;
           }
         });
         return value;

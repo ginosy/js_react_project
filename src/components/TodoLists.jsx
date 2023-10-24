@@ -104,14 +104,14 @@ export const TodoLists = () => {
                 Clear Todos
               </button>
               <button className="btn btn-success ml-2" onClick={markCompleted}>
-                Mark As Completed
+                Mark As Completed/Pending
               </button>
             </>
           )}
         </div>
       </div>
 
-      <table className="table table-bordered">
+      <table className="table table-bordered mt-5">
         <thead>
           <tr>
             <th width="3%">
