@@ -99,11 +99,14 @@ const todoReducer = (state = initialState, action) => {
 
     case MARK_COMPLETED:
       const { selectedTodoId } = action.payload;
+      console.log(selectedTodoId);
       let allTodos = state.todos.map((value) => {
-        if (value.id === selectedTodoId[0]) {
-          value.isCompleted = true;
-          value.isPending = false;
-        }
+        selectedTodoId.forEach((id) => {
+          if (value.id === id) {
+            value.isCompleted = true;
+            value.isPending = false;
+          }
+        });
         return value;
       });
 
