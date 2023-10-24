@@ -61,6 +61,7 @@ export const TodoLists = () => {
     }
 
     if (e?.target?.name === "select_all_todo" && e?.target?.checked === true) {
+      setSelectedTodo([]);
       todos &&
         todos.forEach((todo, index) => {
           const allChkbox = document.getElementsByName(`todo_${index}`);
@@ -88,6 +89,7 @@ export const TodoLists = () => {
   };
 
   const markCompleted = () => {
+    console.log(selectedTodo);
     dispatch(markTodoCompleted(selectedTodo));
   };
 
