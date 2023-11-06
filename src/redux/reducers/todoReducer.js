@@ -55,7 +55,7 @@ const todoReducer = (state = initialState, action) => {
         isEdit: action.isEdit,
       };
     case DELETE_TODO:
-      const newTodoList = state.todos.filter((item) => item.id != action.id);
+      const newTodoList = state.todos.filter((item) => item.id !== action.id);
       return {
         ...state,
         todos: newTodoList,

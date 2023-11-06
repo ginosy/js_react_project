@@ -1,13 +1,65 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 
 export const Contact = () => {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [comment, setComment] = useState("");
+  const [value, setValue] = useState({});
+  const [error, setError] = useState("");
 
-  const onSubmit = () => {
-    console.log(firstname, lastname, email, comment);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (!value?.firstname) {
+      setError((error) => ({
+        ...error,
+        firstname: 'Please enter firstname',
+      }));
+    }
+    if (!value?.lastname) {
+      setError((error) => ({
+        ...error,
+        lastname: 'Please enter lastname'
+      }));
+    }
+    if (!value?.email) {
+      setError((error) => ({
+        ...error,
+        email: 'Please enter email'
+      }));
+    }
+    if (!value?.comment) {
+      setError((error) => ({
+        ...error,
+        comment: 'Please enter comment'
+      }));
+    }
+  };
+
+  const changeEvent = (e) => {
+    setValue(
+      {
+        ...value,
+        [e.target.name]: e.target.value,
+      },
+    );
+    if (e?.target?.name === "firstname") {
+      setError({
+        firstname: "",
+      });
+    }
+    if (e?.target?.name === "lastname") {
+      setError({
+        lastname: ""
+      });
+    }
+    if (e?.target?.name === "email") {
+      setError({
+        email: ""
+      });
+    }
+    if (e?.target?.name === "comment") {
+      setError({
+        lastname: ""
+      });
+    }
   };
 
   return (
@@ -21,9 +73,9 @@ export const Contact = () => {
             name="firstname"
             className="form-control mb-2 mr-sm-3"
             placeholder="First Name"
-            required
-            onChange={(e) => setLastname(e.target.value)}
+            onChange={(e) => changeEvent(e)}
           />
+          <span className="text-danger">{error?.firstname}</span>
         </div>
 
         <div>
@@ -34,9 +86,9 @@ export const Contact = () => {
             name="lastname"
             className="form-control mb-2 mr-sm-3"
             placeholder="Last Name"
-            required
-            onChange={(e) => setFirstname(e.target.value)}
+            onChange={(e) => changeEvent(e)}
           />
+          <span className="text-danger">{error?.lastname}</span>
         </div>
 
         <div>
@@ -47,9 +99,9 @@ export const Contact = () => {
             name="email"
             className="form-control mb-2 mr-sm-3"
             placeholder="Email"
-            required
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => changeEvent(e)}
           />
+          <span className="text-danger">{error?.email}</span>
         </div>
 
         <div>
@@ -57,12 +109,12 @@ export const Contact = () => {
           <textarea
             id="Comments"
             type="text"
-            name="Description"
+            name="comment"
             className="form-control mb-2 mr-sm-3"
             placeholder="What would you like to say?"
-            required
-            onChange={(e) => setComment(e.target.value)}
+            onChange={(e) => changeEvent(e)}
           />
+          <span className="text-danger">{error?.comment}</span>
         </div>
 
         <div>
