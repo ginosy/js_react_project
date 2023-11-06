@@ -118,11 +118,7 @@ export const TodoLists = () => {
         <thead>
           <tr>
             <th width="3%">
-              <input
-                type={"checkbox"}
-                onChange={(e) => changeEvent(e)}
-                name={"select_all_todo"}
-              />
+              
             </th>
             <th width="30%">Name</th>
             <th width="42%">Description</th>
