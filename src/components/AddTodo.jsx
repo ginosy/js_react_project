@@ -15,15 +15,14 @@ export const AddTodo = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
-    if (!value?.title) {
+    if (!value?.title || value.title.trim().length === 0) {
       setError((error) => ({
         ...error,
         title: 'Please enter todo title',
       }));
       return;
     }
-    if (!value?.description) {
+    if (!value?.description || value.description.trim().length === 0) {
       setError((error) => ({
         ...error,
         description: 'Please enter todo description'
