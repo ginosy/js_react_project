@@ -89,7 +89,7 @@ export const TodoLists = () => {
   };
 
   const markCompleted = () => {
-    console.log(selectedTodo);
+    
     dispatch(markTodoCompleted(selectedTodo));
   };
 

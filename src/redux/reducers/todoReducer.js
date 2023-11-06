@@ -99,7 +99,6 @@ const todoReducer = (state = initialState, action) => {
 
     case MARK_COMPLETED:
       const { selectedTodoId } = action.payload;
-      console.log(selectedTodoId);
       let allTodos = state.todos.map((value) => {
         selectedTodoId.forEach((id) => {
           if (value.id === id) {
