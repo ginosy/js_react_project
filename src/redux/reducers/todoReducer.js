@@ -33,7 +33,7 @@ const initialState = {
     },
   ],
   isEdit: false,
-  editTodoId: "",
+  editTodo: {},
 };
 
 const todoReducer = (state = initialState, action) => {
@@ -58,7 +58,7 @@ const todoReducer = (state = initialState, action) => {
       const newTodoList = state.todos.filter((item) => item.id !== action.id);
       return {
         ...state,
-        todos: newTodoList,
+        todos: [...newTodoList],
       };
 
     case EDIT_TODO:
@@ -120,7 +120,7 @@ const todoReducer = (state = initialState, action) => {
       return {
         ...state,
         todos: [...allTodos],
-        isEdit: false,
+        // isEdit: false,
       };
 
     case CLEAR_ALL_TODO:
@@ -132,6 +132,7 @@ const todoReducer = (state = initialState, action) => {
       return {
         ...state,
         editTodo:-1,
+        isEdit:false
       }
 
     default:

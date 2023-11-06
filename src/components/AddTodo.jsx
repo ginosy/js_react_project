@@ -9,8 +9,11 @@ export const AddTodo = () => {
   const isEdit = useSelector((state) => state.todoReducer.isEdit);
   const editTodo = useSelector((state) => state.todoReducer.editTodo);
 
+
+
   useEffect(() => {
     editTodo && setValue(() => editTodo);
+    console.log(isEdit);
   }, [editTodo]);
 
   const onSubmit = (e) => {
