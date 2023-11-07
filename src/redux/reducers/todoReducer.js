@@ -72,17 +72,7 @@ const todoReducer = (state = initialState, action) => {
 
     case UPDATE_TODO:
       const { todoId, todoTitle, todoDescription } = action.payload;
-      // const todos = state.todos.filter((todo) => {
-      //   return todo.id !== todoId;
-      // });
-
-      // const todo = state.todos.find((todo) => todo?.id === todoId);
-      // todo.title = todoTitle;
-      // todo.description = todoDescription;
-      // todo.isCompleted = todo?.isCompleted;
-      // todo.isPending = todo?.isPending;
-      // todos.push(todo);
-
+      
       let todos = state.todos.map((value) => {
         if (value.id === todoId) {
           value.title = todoTitle;
@@ -109,18 +99,10 @@ const todoReducer = (state = initialState, action) => {
         return value;
       });
 
-      //   const selectedTodo = state.todos.find((todo) => todo?.id === id);
-      //   selectedTodo.title = selectedTodo?.title;
-      //   selectedTodo.description = selectedTodo?.description;
-      //   selectedTodo.isCompleted = true;
-      //   selectedTodo.isPending = false;
-      //   allTodos.push(selectedTodo);
-      // });
-
+      
       return {
         ...state,
         todos: [...allTodos],
-        // isEdit: false,
       };
 
     case CLEAR_ALL_TODO:
