@@ -37,7 +37,6 @@ export const TodoLists = () => {
     setAll(true);
     setCompleted(false);
     setIncompleted(false);
-    // setTodoLists(todos);
   };
   const handleCompletedClick = () => {
     setFilterStatus("complete");
@@ -45,7 +44,6 @@ export const TodoLists = () => {
     setAll(false);
     setCompleted(true);
     setIncompleted(false);
-    // setTodoLists(todos.filter((todo) => todo.isCompleted === true));
   };
   const handleIncompletedClick = () => {
     setFilterStatus("pending");
@@ -53,7 +51,6 @@ export const TodoLists = () => {
     setAll(false);
     setCompleted(false);
     setIncompleted(true);
-    // setTodoLists(todos.filter((todo) => todo.isCompleted === false));
   };
 
   const actionClick = (data) => {
