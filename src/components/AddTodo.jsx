@@ -13,7 +13,6 @@ export const AddTodo = () => {
 
   useEffect(() => {
     editTodo && setValue(() => editTodo);
-    console.log(isEdit);
   }, [editTodo]);
 
   const onSubmit = (e) => {

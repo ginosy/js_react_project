@@ -29,7 +29,6 @@ export const TodoLists = () => {
     } else {
       setTodoLists(todos);
     }
-    console.log(filterStatus);
   }, [todos, filterStatus]);
 
   const handleAllClick = () => {
@@ -61,7 +60,6 @@ export const TodoLists = () => {
     if (data && data?.type === "edit") {
       dispatch(editTodo(data?.todo?.id));
     } else if (data && data?.type === "delete") {
-      console.log(data?.todo?.id);
       setSelectedTodo(selectedTodo.filter((todo) => todo !== data?.todo?.id));
       if (isEdit === true && data?.todo?.id === editTodoItem.id) {
         document.getElementById("todoForm").reset();
